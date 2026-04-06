@@ -131,7 +131,7 @@ async def seed_data():
             "food_options": ["Prasad from temple kitchen", "Gujarati thali restaurants nearby", "Vegetarian restaurants in Veraval", "Street food at Triveni Ghat"],
             "nearby_attractions": ["Triveni Sangam - confluence of three rivers", "Bhalka Tirtha - where Lord Krishna was struck by an arrow", "Prabhas Patan Museum", "Junagadh (85 km)", "Gir National Park (45 km)"],
             "travel_info": {"nearest_airport": "Diu Airport (63 km)", "nearest_railway": "Veraval Railway Station (5 km)", "road_connectivity": "Well connected by road to Ahmedabad (400 km), Rajkot (200 km), and other Gujarat cities"},
-            "image_url": "https://images.unsplash.com/photo-1745405380896-ef6da62c89b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxTb21uYXRoJTIwdGVtcGxlJTIwYXJjaGl0ZWN0dXJlJTIwSW5kaWF8ZW58MHx8fHwxNzc1NTA1MjU3fDA&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/e6hll99n_Somnath.jpg",
             "best_time_to_visit": "October to March"
         },
         {
@@ -179,7 +179,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Vegetarian restaurants on the island", "Local Madhya Pradesh cuisine", "Street food near ghats"],
             "nearby_attractions": ["Mamleshwar Temple (second Jyotirlinga here)", "24 Avatars - group of Jain and Hindu temples", "Satmatrika Temples", "Siddhanath Temple", "Narmada River ghats"],
             "travel_info": {"nearest_airport": "Indore Airport (77 km)", "nearest_railway": "Omkareshwar Road Station (12 km)", "road_connectivity": "Connected to Indore, Ujjain, and Khandwa by road"},
-            "image_url": "https://images.pexels.com/photos/31598124/pexels-photo-31598124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/v8l74fq8_omkareshwar.jpg",
             "best_time_to_visit": "October to March"
         },
         {
@@ -243,7 +243,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Maharashtrian vegetarian restaurants", "Nashik's famous misal pav", "Local snacks and sweet shops"],
             "nearby_attractions": ["Godavari River origin (Brahmagiri Hill)", "Anjaneri Hills (birthplace of Hanuman)", "Nashik wine capital (30 km)", "Pandav Leni Caves", "Saptashrungi Devi Temple (60 km)"],
             "travel_info": {"nearest_airport": "Nashik Airport (30 km)", "nearest_railway": "Nashik Road Railway Station (28 km)", "road_connectivity": "Well connected to Mumbai (180 km) and Pune (170 km)"},
-            "image_url": "https://images.unsplash.com/photo-1745405380896-ef6da62c89b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxTb21uYXRoJTIwdGVtcGxlJTIwYXJjaGl0ZWN0dXJlJTIwSW5kaWF8ZW58MHx8fHwxNzc1NTA1MjU3fDA&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/vg2ck3w8_Trimbhakeshwar.jpg",
             "best_time_to_visit": "October to March"
         },
         {
@@ -275,7 +275,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Gujarati vegetarian thali", "Restaurants in Dwarka", "Fresh seafood (for non-strict vegetarians) in Okha"],
             "nearby_attractions": ["Dwarkadhish Temple (17 km)", "Bet Dwarka island", "Gopi Talav", "Rukmini Devi Temple", "Beyt Shankhodhar (marine national park)"],
             "travel_info": {"nearest_airport": "Jamnagar Airport (137 km)", "nearest_railway": "Dwarka Railway Station (17 km)", "road_connectivity": "Connected to Ahmedabad, Rajkot, and other Gujarat cities"},
-            "image_url": "https://images.unsplash.com/photo-1745405380896-ef6da62c89b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxTb21uYXRoJTIwdGVtcGxlJTIwYXJjaGl0ZWN0dXJlJTIwSW5kaWF8ZW58MHx8fHwxNzc1NTA1MjU3fDA&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/rcwrs3xu_Nageshwar.jpg",
             "best_time_to_visit": "October to March"
         },
         {
@@ -291,7 +291,7 @@ async def seed_data():
             "food_options": ["Temple prasadam", "South Indian vegetarian meals", "Tamil Nadu style thali", "Fresh seafood restaurants", "Local snack stalls"],
             "nearby_attractions": ["Dhanushkodi (India-Sri Lanka closest point)", "Pamban Bridge", "APJ Abdul Kalam Memorial", "Agnitheertham (sea bathing)", "Five-faced Hanuman Temple", "Gandhamadhana Parvatham"],
             "travel_info": {"nearest_airport": "Madurai Airport (174 km)", "nearest_railway": "Rameswaram Railway Station (2 km)", "road_connectivity": "Connected to Madurai, Chennai via Pamban Bridge"},
-            "image_url": "https://images.unsplash.com/photo-1736568763783-3a72e7dd52f3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwzfHxLYXNoaSUyMFZpc2h3YW5hdGglMjBWYXJhbmFzaSUyMHNwaXJpdHVhbHxlbnwwfHx8fDE3NzU1MDUyNTd8MA&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/sjllcr48_Rameshwaram.jpg",
             "best_time_to_visit": "October to April"
         },
         {
