@@ -147,7 +147,7 @@ async def seed_data():
             "food_options": ["Temple prasadam", "Anna prasadam (free meals)", "South Indian vegetarian restaurants", "Andhra thali restaurants"],
             "nearby_attractions": ["Srisailam Dam and Reservoir", "Akka Mahadevi Caves", "Sikharesvara Temple", "Mallela Theertham Waterfall", "Patala Ganga (riverside ghat)"],
             "travel_info": {"nearest_airport": "Hyderabad Airport (213 km)", "nearest_railway": "Markapur Railway Station (86 km)", "road_connectivity": "Connected by road to Hyderabad, Vijayawada, and Kurnool"},
-            "image_url": "https://images.pexels.com/photos/31598124/pexels-photo-31598124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/2qjolndg_Mallikarjuna.jpg",
             "best_time_to_visit": "October to February"
         },
         {
@@ -195,7 +195,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Basic vegetarian meals in dharamshalas", "Packed food recommended", "Better dining options in Gaurikund and Guptkashi"],
             "nearby_attractions": ["Bhairavnath Temple (1 km trek)", "Gandhi Sarovar Lake", "Vasuki Tal Lake (8 km trek)", "Chorabari Tal (Gandhi Sarovar)", "Triyuginarayan Temple in Triyuginarayan"],
             "travel_info": {"nearest_airport": "Jolly Grant Airport, Dehradun (239 km from Gaurikund)", "nearest_railway": "Rishikesh Railway Station (221 km from Gaurikund)", "road_connectivity": "Road till Gaurikund, then 16 km trek or helicopter service to Kedarnath"},
-            "image_url": "https://images.pexels.com/photos/31452416/pexels-photo-31452416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/titq1jjd_kedarnath.jpg",
             "best_time_to_visit": "May to June and September to October (temple closed in winter)"
         },
         {
@@ -211,7 +211,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Maharashtrian vegetarian meals", "Simple restaurants near temple", "Better options in Khandala village"],
             "nearby_attractions": ["Bhimashankar Wildlife Sanctuary", "Hanuman Lake", "Gupt Bhimashankar (old temple)", "Nagphani (Duke's Nose viewpoint, 50 km)", "Karjat and Lonavala (nearby hill stations)"],
             "travel_info": {"nearest_airport": "Pune Airport (112 km)", "nearest_railway": "Pune Railway Station (100 km)", "road_connectivity": "Connected to Pune and Mumbai by road; last stretch is ghat road"},
-            "image_url": "https://images.unsplash.com/photo-1745405380896-ef6da62c89b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxTb21uYXRoJTIwdGVtcGxlJTIwYXJjaGl0ZWN0dXJlJTIwSW5kaWF8ZW58MHx8fHwxNzc1NTA1MjU3fDA&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/3fw4wwne_Bhimshankar.jpg",
             "best_time_to_visit": "October to February"
         },
         {
@@ -227,7 +227,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Famous Kashi chaat and sweets", "Banarasi paan", "Vegetarian restaurants throughout the city", "River-view cafes near ghats"],
             "nearby_attractions": ["Dashashwamedh Ghat and Ganga Aarti", "Manikarnika Ghat", "Assi Ghat", "Sarnath (Buddhist pilgrimage, 10 km)", "Ramnagar Fort", "Tulsi Manas Mandir"],
             "travel_info": {"nearest_airport": "Lal Bahadur Shastri Airport, Varanasi (25 km)", "nearest_railway": "Varanasi Junction (5 km)", "road_connectivity": "Well connected to all major cities by road and rail"},
-            "image_url": "https://images.unsplash.com/photo-1736568763783-3a72e7dd52f3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwzfHxLYXNoaSUyMFZpc2h3YW5hdGglMjBWYXJhbmFzaSUyMHNwaXJpdHVhbHxlbnwwfHx8fDE3NzU1MDUyNTd8MA&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/i7qbj98d_Kashi%20Viswanath.jpg",
             "best_time_to_visit": "October to March"
         },
         {
@@ -307,7 +307,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Maharashtrian cuisine", "Restaurants near Ellora", "Aurangabad's famous Naan Khaliya"],
             "nearby_attractions": ["Ellora Caves (UNESCO World Heritage, 0.5 km)", "Daulatabad Fort (25 km)", "Bibi Ka Maqbara (35 km)", "Ajanta Caves (100 km)", "Devgiri Fort"],
             "travel_info": {"nearest_airport": "Aurangabad Airport (30 km)", "nearest_railway": "Aurangabad Railway Station (30 km)", "road_connectivity": "Well connected to Aurangabad, Mumbai, and Pune"},
-            "image_url": "https://images.unsplash.com/photo-1658730458768-8b8cc0c00955?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxVamphaW4lMjBNYWhha2FsZXNod2FyJTIwdGVtcGxlfGVufDB8fHx8MTc3NTUwNTI3NHww&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/9eg8d274_Grihneshwar.jpg",
             "best_time_to_visit": "October to March"
         }
     ]
