@@ -163,7 +163,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Famous Ujjain poha and jalebi", "Traditional Malwa cuisine", "Vegetarian restaurants on Mahakal Road"],
             "nearby_attractions": ["Ram Ghat on Shipra River", "Kal Bhairav Temple", "Harsiddhi Temple", "Sandipani Ashram", "Vedh Shala (ancient observatory)"],
             "travel_info": {"nearest_airport": "Devi Ahilyabai Holkar Airport, Indore (55 km)", "nearest_railway": "Ujjain Junction (2 km)", "road_connectivity": "Well connected to Indore, Bhopal, and other MP cities"},
-            "image_url": "https://images.unsplash.com/photo-1658730458768-8b8cc0c00955?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxVamphaW4lMjBNYWhha2FsZXNod2FyJTIwdGVtcGxlfGVufDB8fHx8MTc3NTUwNTI3NHww&ixlib=rb-4.1.0&q=85",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/s2k0tvzg_%F0%9F%93%8DMahakal%20Temple%2CUjjain.jpg",
             "best_time_to_visit": "October to March"
         },
         {
@@ -259,7 +259,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Satvik bhojan in dharamshalas", "Local vegetarian restaurants", "North Indian cuisine restaurants"],
             "nearby_attractions": ["Naulakha Mandir", "Basukinath Temple (42 km)", "Nandan Pahar (small amusement park)", "Tapovan Hills and caves", "Rikhia Yogashram"],
             "travel_info": {"nearest_airport": "Patna Airport (281 km) or Ranchi Airport (250 km)", "nearest_railway": "Jasidih Junction (7 km)", "road_connectivity": "Connected to Patna, Ranchi, and Kolkata by road"},
-            "image_url": "https://images.pexels.com/photos/31598124/pexels-photo-31598124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/bx88tyqo_Baidyanath.jpg",
             "best_time_to_visit": "October to March (Shravan month in July-August for Kanwar Yatra)"
         },
         {
