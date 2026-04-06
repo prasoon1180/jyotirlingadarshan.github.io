@@ -1,0 +1,113 @@
+{
+  "theme": "LIGHT",
+  "archetype": "1 (Organic & Earthy - Modified for Spiritual Heritage)",
+  "emotional_tone": "Reverent, Historic, Serene, Authoritative",
+  "colors": {
+    "primary": {
+      "hex": "#F97316",
+      "hsl": "24 95% 53%",
+      "description": "Spiritual Saffron - represents purity, fire, and the divine."
+    },
+    "secondary": {
+      "hex": "#0F172A",
+      "hsl": "222 47% 11%",
+      "description": "Deep Blue/Slate - represents the infinite, cosmic nature of Shiva."
+    },
+    "background": {
+      "hex": "#FAFAF9",
+      "hsl": "60 9% 98%",
+      "description": "Warm Stone/Cream - off-white to provide breathing room and physical texture."
+    },
+    "surface": {
+      "hex": "#FFFFFF",
+      "hsl": "0 0% 100%",
+      "description": "Pure white for cards and floating elements."
+    },
+    "accent": {
+      "hex": "#EAB308",
+      "hsl": "45 93% 47%",
+      "description": "Temple Gold - for subtle highlights, stars, or secondary accents."
+    },
+    "text_main": {
+      "hex": "#1E293B",
+      "hsl": "215 28% 17%",
+      "description": "High contrast dark slate for maximum readability."
+    }
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Cormorant Garamond, serif",
+      "weights": ["400", "600", "700"],
+      "usage": "Use for all H1, H2, H3. Apply tracking-tight or tracking-tighter for an editorial, monumental feel."
+    },
+    "body": {
+      "font_family": "Outfit, sans-serif",
+      "weights": ["300", "400", "500"],
+      "usage": "Clean, highly readable geometric sans for dense informational sections."
+    },
+    "labels": {
+      "font_family": "Outfit, sans-serif",
+      "styles": "uppercase, tracking-[0.2em], text-xs to text-sm",
+      "usage": "Overlines, metadata, and tiny labels."
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32",
+    "grid_strategy": "TETRIS grid for the Homepage marketing sections (asymmetrical, overlapping). CONTROL ROOM grid for Individual Temple pages (dense data, travel info, map).",
+    "border_radius": "rounded-none or rounded-sm (max 4px). Avoid excessive roundness; temple architecture has sharp, definitive lines."
+  },
+  "surface_strategies": {
+    "cards": "Flat background (bg-white), 1px solid border (border-orange-100/50), subtle warm drop shadow on hover (shadow-orange-900/5).",
+    "headers": "Crystal Glassmorphism over hero images (bg-white/70, backdrop-blur-xl, border-b border-white/20).",
+    "map_container": "Deep Blue background (bg-slate-900) with subtle noise texture, map paths in muted gold/saffron, glowing saffron dots for the 12 Jyotirlingas."
+  },
+  "components_usage": {
+    "navigation": "Dropdown menu for all 12 Jyotirlingas. Must be built with Shadcn NavigationMenu or DropdownMenu. Desktop visible.",
+    "search": "Shadcn Command dialog for finding temples by name/location.",
+    "tables_and_data": "Shadcn Table for Ritual Timings. Shadcn Tabs for switching between Stay, Food, Travel info on individual pages."
+  },
+  "media": {
+    "hero_image": {
+      "url": "https://images.unsplash.com/photo-1759998756869-c8eeb78f49e8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwxfHxTaGl2YSUyMHN0YXR1ZSUyMEluZGlhJTIwc3Vuc2V0fGVufDB8fHx8MTc3NTUwNTI4MHww&ixlib=rb-4.1.0&q=85",
+      "description": "Dramatic silhouette of Shiva statue against a vibrant sunset sky. Ideal for Homepage Hero.",
+      "overlay": "bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent"
+    },
+    "somnath_temple": {
+      "url": "https://images.unsplash.com/photo-1745405380896-ef6da62c89b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxTb21uYXRoJTIwdGVtcGxlJTIwYXJjaGl0ZWN0dXJlJTIwSW5kaWF8ZW58MHx8fHwxNzc1NTA1MjU3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Beautiful temple framed by intricate architecture. Use for Somnath card/page."
+    },
+    "kashi_vishwanath": {
+      "url": "https://images.unsplash.com/photo-1736568763783-3a72e7dd52f3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwzfHxLYXNoaSUyMFZpc2h3YW5hdGglMjBWYXJhbmFzaSUyMHNwaXJpdHVhbHxlbnwwfHx8fDE3NzU1MDUyNTd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Boats floating in Varanasi, representing Kashi Vishwanath spiritual environment."
+    },
+    "ritual_ceremony": {
+      "url": "https://images.pexels.com/photos/31598124/pexels-photo-31598124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Hindu priest conducting traditional rituals with incense. Good for generic 'Rituals & Timings' sections."
+    },
+    "sadhus_gathering": {
+      "url": "https://images.pexels.com/photos/31452416/pexels-photo-31452416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Hindu sadhus in traditional saffron attire. Use for cultural context or mythology section."
+    },
+    "mahakaleshwar_temple": {
+      "url": "https://images.unsplash.com/photo-1658730458768-8b8cc0c00955?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxVamphaW4lMjBNYWhha2FsZXNod2FyJTIwdGVtcGxlfGVufDB8fHx8MTc3NTUwNTI3NHww&ixlib=rb-4.1.0&q=85",
+      "description": "Ujjain temple architecture, use for Mahakaleshwar."
+    }
+  },
+  "animations": {
+    "scroll": "Use Lenis for smooth scrolling, giving weight and a premium feel to the spiritual journey.",
+    "hover": "Subtle -translate-y-1 and shadow enhancement on temple cards. Image zoom (scale-105) inside overflow-hidden containers.",
+    "entrance": "Staggered fade-up for temple lists using Framer Motion."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure white text over saffron has minimum 4.5:1 contrast, otherwise use deep slate text. Text over hero images must use text-shadow or gradient underlays.",
+    "data_testids": "All interactive elements (dropdowns, search inputs, temple cards, tabs) MUST have kebab-case data-testid attributes."
+  },
+  "instructions_to_main_agent": [
+    "Use pure HTML/Tailwind for the marketing homepage bento grids; avoid using Shadcn 'Card' wrappers for these to allow aggressive asymmetry and overlapping.",
+    "Use Shadcn components for the interactive utilities (Search Dialog, NavigationMenu, Tabs for Stay/Food/Travel).",
+    "Integrate a visual Map section. If an interactive library is heavy, use a custom SVG map of India highlighting the 12 locations with absolute positioned pulsing dots.",
+    "Ensure 'Cormorant Garamond' and 'Outfit' are loaded from Google Fonts in index.html.",
+    "Theme the Tailwind config based on the provided colors (override standard slate with the provided warm background and deep blue/saffron palette)."
+  ]
+}
