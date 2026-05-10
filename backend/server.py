@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -8,6 +8,9 @@ from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional
 from datetime import datetime, timezone
+import razorpay
+import hmac
+import hashlib
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -16,6 +19,11 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+
+# Razorpay client
+razorpay_key_id = os.environ.get('RAZORPAY_KEY_ID')
+razorpay_key_secret = os.environ.get('RAZORPAY_KEY_SECRET')
+razorpay_client = razorpay.Client(auth=(razorpay_key_id, razorpay_key_secret)) if razorpay_key_id and razorpay_key_secret else None
 
 # Create the main app
 app = FastAPI()
@@ -314,6 +322,132 @@ async def seed_data():
     
     await db.jyotirlingas.insert_many(jyotirlingas_data)
     return {"message": "Database seeded successfully", "count": len(jyotirlingas_data)}
+
+# --- Razorpay Payment Models ---
+class CreateOrderRequest(BaseModel):
+    amount: int  # Amount in paise (100 paise = 1 INR)
+    currency: str = "INR"
+    temple_id: str
+    payment_type: str  # "donation", "pooja", "travel"
+    description: str
+    customer_name: Optional[str] = None
+    customer_email: Optional[str] = None
+    customer_phone: Optional[str] = None
+
+class VerifyPaymentRequest(BaseModel):
+    razorpay_order_id: str
+    razorpay_payment_id: str
+    razorpay_signature: str
+
+# --- Razorpay Endpoints ---
+@api_router.post("/payments/create-order")
+async def create_payment_order(order_req: CreateOrderRequest):
+    try:
+        receipt_id = f"{order_req.temple_id}_{order_req.payment_type}_{int(datetime.now(timezone.utc).timestamp())}"
+        receipt_id = receipt_id[:40]
+        
+        order_id = None
+        demo_mode = False
+        
+        if razorpay_client:
+            try:
+                order_data = {
+                    "amount": order_req.amount,
+                    "currency": order_req.currency,
+                    "receipt": receipt_id,
+                    "payment_capture": 1,
+                }
+                razorpay_order = razorpay_client.order.create(data=order_data)
+                order_id = razorpay_order["id"]
+            except Exception:
+                demo_mode = True
+                order_id = f"demo_order_{int(datetime.now(timezone.utc).timestamp())}"
+        else:
+            demo_mode = True
+            order_id = f"demo_order_{int(datetime.now(timezone.utc).timestamp())}"
+        
+        # Store order in MongoDB
+        payment_record = {
+            "order_id": order_id,
+            "amount": order_req.amount,
+            "currency": order_req.currency,
+            "temple_id": order_req.temple_id,
+            "payment_type": order_req.payment_type,
+            "description": order_req.description,
+            "customer_name": order_req.customer_name,
+            "customer_email": order_req.customer_email,
+            "customer_phone": order_req.customer_phone,
+            "status": "created",
+            "demo_mode": demo_mode,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        }
+        await db.payments.insert_one(payment_record)
+        
+        return {
+            "order_id": order_id,
+            "amount": order_req.amount,
+            "currency": order_req.currency,
+            "key_id": razorpay_key_id or "demo_key",
+            "demo_mode": demo_mode,
+        }
+    except Exception as e:
+        logging.error(f"Razorpay order creation failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Payment order creation failed: {str(e)}")
+
+@api_router.post("/payments/verify")
+async def verify_payment(verify_req: VerifyPaymentRequest):
+    # Handle demo mode
+    if verify_req.razorpay_order_id.startswith("demo_"):
+        await db.payments.update_one(
+            {"order_id": verify_req.razorpay_order_id},
+            {"$set": {
+                "status": "paid",
+                "payment_id": verify_req.razorpay_payment_id,
+                "paid_at": datetime.now(timezone.utc).isoformat(),
+            }}
+        )
+        return {"status": "success", "message": "Demo payment recorded successfully"}
+    
+    if not razorpay_client:
+        raise HTTPException(status_code=500, detail="Payment gateway not configured")
+    
+    try:
+        generated_signature = hmac.new(
+            razorpay_key_secret.encode(),
+            (verify_req.razorpay_order_id + "|" + verify_req.razorpay_payment_id).encode(),
+            hashlib.sha256
+        ).hexdigest()
+        
+        if generated_signature == verify_req.razorpay_signature:
+            await db.payments.update_one(
+                {"order_id": verify_req.razorpay_order_id},
+                {"$set": {
+                    "status": "paid",
+                    "payment_id": verify_req.razorpay_payment_id,
+                    "signature": verify_req.razorpay_signature,
+                    "paid_at": datetime.now(timezone.utc).isoformat(),
+                }}
+            )
+            return {"status": "success", "message": "Payment verified successfully"}
+        else:
+            await db.payments.update_one(
+                {"order_id": verify_req.razorpay_order_id},
+                {"$set": {"status": "failed"}}
+            )
+            raise HTTPException(status_code=400, detail="Payment verification failed")
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Payment verification error: {e}")
+        raise HTTPException(status_code=500, detail=f"Verification error: {str(e)}")
+
+@api_router.get("/payments/history/{temple_id}")
+async def get_payment_history(temple_id: str):
+    payments = await db.payments.find(
+        {"temple_id": temple_id, "status": "paid"},
+        {"_id": 0}
+    ).to_list(100)
+    return payments
 
 app.include_router(api_router)
 

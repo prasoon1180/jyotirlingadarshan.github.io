@@ -4,6 +4,8 @@ import { MapPin, Clock, Home, Utensils, Compass, Train, Plane, ArrowLeft } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { PaymentSection } from '@/components/PaymentSection';
+import { AffiliateBookingSection } from '@/components/AffiliateBookingSection';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -306,6 +308,12 @@ export const TempleDetailPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Payment & Booking Section */}
+      <PaymentSection temple={temple} />
+
+      {/* Affiliate Booking Partners */}
+      <AffiliateBookingSection temple={temple} />
     </div>
   );
 };
