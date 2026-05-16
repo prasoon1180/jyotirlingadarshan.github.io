@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Request
+from fastapi.responses import Response
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -450,6 +451,53 @@ async def get_payment_history(temple_id: str):
     return payments
 
 app.include_router(api_router)
+
+# --- Sitemap & Robots.txt ---
+SITE_URL = os.environ.get('SITE_URL', 'https://sacred-lingas.preview.emergentagent.com')
+
+TEMPLE_IDS = [
+    "somnath", "mallikarjuna", "mahakaleshwar", "omkareshwar",
+    "kedarnath", "bhimashankar", "kashi-vishwanath", "trimbakeshwar",
+    "vaidyanath", "nageshwar", "rameshwaram", "grishneshwar"
+]
+
+@app.get("/sitemap.xml")
+async def sitemap():
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    urls = []
+
+    # Homepage
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>""")
+
+    # Individual temple pages
+    for tid in TEMPLE_IDS:
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/temple/{tid}</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>"""
+
+    return Response(content=xml, media_type="application/xml")
+
+@app.get("/robots.txt")
+async def robots_txt():
+    content = f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    return Response(content=content, media_type="text/plain")
 
 app.add_middleware(
     CORSMiddleware,
