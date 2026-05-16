@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 import { PaymentSection } from '@/components/PaymentSection';
 import { AffiliateBookingSection } from '@/components/AffiliateBookingSection';
+import { SEOHead, getTempleJsonLd } from '@/components/SEOHead';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { OtherJyotirlingas } from '@/components/OtherJyotirlingas';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -53,12 +56,26 @@ export const TempleDetailPage = () => {
 
   return (
     <div className="min-h-screen" data-testid="temple-detail-page">
+      <SEOHead
+        title={`${temple.name} Jyotirlinga Temple ${temple.location.state} - Darshan Timings, History, How to Reach`}
+        description={`Complete guide to ${temple.name} Jyotirlinga Temple in ${temple.location.region}, ${temple.location.state}. ${temple.description.slice(0, 120)}... Darshan timings, mythology, pooja booking, nearby hotels, food options, and travel information.`}
+        keywords={`${temple.name} jyotirlinga, ${temple.name} temple, ${temple.name} temple ${temple.location.state}, ${temple.name} darshan timings, ${temple.name} temple history, ${temple.name} how to reach, ${temple.name} pooja booking, ${temple.name} nearby hotels, ${temple.name} temple mythology, ${temple.location.region} temple, jyotirlinga ${temple.location.state}, shiva temple ${temple.location.region}`}
+        canonical={`${window.location.origin}/temple/${temple.id}`}
+        ogImage={temple.image_url}
+        jsonLd={getTempleJsonLd(temple)}
+        breadcrumbs={[
+          { name: 'Home', url: window.location.origin },
+          { name: '12 Jyotirlingas', url: `${window.location.origin}/#temples` },
+          { name: `${temple.name} Jyotirlinga`, url: `${window.location.origin}/temple/${temple.id}` },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={temple.image_url}
-            alt={temple.name}
+            alt={`${temple.name} Jyotirlinga Temple in ${temple.location.region}, ${temple.location.state} - sacred Shiva shrine and pilgrimage destination`}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900/90"></div>
@@ -71,7 +88,7 @@ export const TempleDetailPage = () => {
             data-testid="back-button"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span className="font-outfit">Back to All Temples</span>
+            <span className="font-outfit">Back to All 12 Jyotirlingas</span>
           </Link>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -79,7 +96,7 @@ export const TempleDetailPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-cormorant text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter mb-4" data-testid="temple-name">
-              {temple.name}
+              {temple.name} Jyotirlinga Temple
             </h1>
             <div className="flex items-center text-lg font-outfit">
               <MapPin className="w-5 h-5 mr-2 text-saffron-400" />
@@ -92,13 +109,22 @@ export const TempleDetailPage = () => {
       {/* Content Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 md:px-12">
+          {/* Breadcrumbs */}
+          <div className="mb-8">
+            <Breadcrumbs items={[
+              { label: 'Home', href: '/' },
+              { label: '12 Jyotirlingas', href: '/#temples' },
+              { label: `${temple.name} Jyotirlinga` },
+            ]} />
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Description */}
               <div className="mb-12" data-testid="temple-description">
                 <h2 className="font-cormorant text-3xl font-bold tracking-tighter text-temple-slate mb-4">
-                  About the Temple
+                  About {temple.name} Jyotirlinga Temple
                 </h2>
                 <p className="font-outfit text-base text-gray-700 leading-relaxed mb-6">
                   {temple.description}
@@ -108,7 +134,7 @@ export const TempleDetailPage = () => {
               {/* Mythology */}
               <div className="mb-12" data-testid="temple-mythology">
                 <h2 className="font-cormorant text-3xl font-bold tracking-tighter text-temple-slate mb-4">
-                  Mythology & Legend
+                  {temple.name} Temple Mythology & Legend
                 </h2>
                 <p className="font-outfit text-base text-gray-700 leading-relaxed">
                   {temple.mythology}
@@ -118,7 +144,7 @@ export const TempleDetailPage = () => {
               {/* History */}
               <div className="mb-12" data-testid="temple-history">
                 <h2 className="font-cormorant text-3xl font-bold tracking-tighter text-temple-slate mb-4">
-                  Historical Significance
+                  History of {temple.name} Temple
                 </h2>
                 <p className="font-outfit text-base text-gray-700 leading-relaxed">
                   {temple.history}
@@ -128,7 +154,7 @@ export const TempleDetailPage = () => {
               {/* Rituals & Timings */}
               <div className="mb-12">
                 <h2 className="font-cormorant text-3xl font-bold tracking-tighter text-temple-slate mb-6">
-                  Rituals & Timings
+                  {temple.name} Darshan Timings & Rituals
                 </h2>
                 <div className="bg-white border border-orange-100/50 p-6" data-testid="temple-timings">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -168,7 +194,7 @@ export const TempleDetailPage = () => {
               {/* Visitor Information Tabs */}
               <div>
                 <h2 className="font-cormorant text-3xl font-bold tracking-tighter text-temple-slate mb-6">
-                  Visitor Information
+                  How to Reach {temple.name} — Stay, Food & Travel Guide
                 </h2>
                 <Tabs defaultValue="stay" className="w-full" data-testid="visitor-info-tabs">
                   <TabsList className="grid w-full grid-cols-4 mb-6">
@@ -192,7 +218,7 @@ export const TempleDetailPage = () => {
 
                   <TabsContent value="stay" data-testid="stay-content">
                     <div className="bg-white border border-orange-100/50 p-6">
-                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">Accommodation Options</h3>
+                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">Hotels & Accommodation Near {temple.name}</h3>
                       <ul className="space-y-3">
                         {temple.stay_options.map((option, idx) => (
                           <li key={idx} className="flex items-start">
@@ -211,7 +237,7 @@ export const TempleDetailPage = () => {
 
                   <TabsContent value="food" data-testid="food-content">
                     <div className="bg-white border border-orange-100/50 p-6">
-                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">Food & Dining</h3>
+                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">Food & Restaurants Near {temple.name} Temple</h3>
                       <ul className="space-y-3">
                         {temple.food_options.map((option, idx) => (
                           <li key={idx} className="flex items-start">
@@ -225,7 +251,7 @@ export const TempleDetailPage = () => {
 
                   <TabsContent value="attractions" data-testid="attractions-content">
                     <div className="bg-white border border-orange-100/50 p-6">
-                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">Nearby Attractions</h3>
+                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">Places to Visit Near {temple.name} Temple</h3>
                       <ul className="space-y-3">
                         {temple.nearby_attractions.map((attraction, idx) => (
                           <li key={idx} className="flex items-start">
@@ -239,7 +265,7 @@ export const TempleDetailPage = () => {
 
                   <TabsContent value="travel" data-testid="travel-content">
                     <div className="bg-white border border-orange-100/50 p-6">
-                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">How to Reach</h3>
+                      <h3 className="font-cormorant text-xl font-bold text-temple-slate mb-4">How to Reach {temple.name} — Airport, Railway, Road</h3>
                       <div className="space-y-4">
                         <div>
                           <div className="flex items-center mb-2">
@@ -314,6 +340,9 @@ export const TempleDetailPage = () => {
 
       {/* Affiliate Booking Partners */}
       <AffiliateBookingSection temple={temple} />
+
+      {/* Internal Linking - Other Jyotirlingas */}
+      <OtherJyotirlingas currentTempleId={temple.id} />
     </div>
   );
 };
