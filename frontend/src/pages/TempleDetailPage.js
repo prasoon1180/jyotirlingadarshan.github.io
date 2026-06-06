@@ -4,11 +4,11 @@ import { MapPin, Clock, Home, Utensils, Compass, Train, Plane, ArrowLeft } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import { PaymentSection } from '@/components/PaymentSection';
 import { AffiliateBookingSection } from '@/components/AffiliateBookingSection';
 import { SEOHead, getTempleJsonLd } from '@/components/SEOHead';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { OtherJyotirlingas } from '@/components/OtherJyotirlingas';
+import { VedicImportanceSection } from '@/components/VedicImportanceSection';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -335,8 +335,8 @@ export const TempleDetailPage = () => {
         </div>
       </section>
 
-      {/* Payment & Booking Section */}
-      <PaymentSection temple={temple} />
+      {/* Vedic Importance & Astrological Guide */}
+      <VedicImportanceSection temple={temple} />
 
       {/* Affiliate Booking Partners */}
       <AffiliateBookingSection temple={temple} />
