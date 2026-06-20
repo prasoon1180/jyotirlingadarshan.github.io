@@ -34,9 +34,10 @@ const affiliatePartners = [
     icon: Hotel,
     color: 'bg-red-600',
     description: 'Hotels & resorts at best prices',
-    // Replace `cid` with your Agoda affiliate Campaign ID
+    // TODO: Replace `AGODA_CID_PENDING` with actual Agoda Campaign ID (CID) — pending, will be updated next week
+    // Get your CID from: https://partners.agoda.com
     getUrl: (temple) =>
-      `https://www.agoda.com/search?city=${encodeURIComponent(temple.location.region)}&cid=jyotirlinga`,
+      `https://www.agoda.com/search?city=${encodeURIComponent(temple.location.region)}&cid=AGODA_CID_PENDING`,
     badge: 'Official Partner',
   },
 ];
