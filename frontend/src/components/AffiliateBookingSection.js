@@ -29,17 +29,6 @@ const affiliatePartners = [
       `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(temple.location.region + ', ' + temple.location.state)}&aid=jyotirlinga`,
     badge: 'Official Partner',
   },
-  {
-    name: 'Agoda',
-    icon: Hotel,
-    color: 'bg-red-600',
-    description: 'Hotels & resorts at best prices',
-    // TODO: Replace `AGODA_CID_PENDING` with actual Agoda Campaign ID (CID) — pending, will be updated next week
-    // Get your CID from: https://partners.agoda.com
-    getUrl: (temple) =>
-      `https://www.agoda.com/search?city=${encodeURIComponent(temple.location.region)}&cid=AGODA_CID_PENDING`,
-    badge: 'Official Partner',
-  },
 ];
 
 export const AffiliateBookingSection = ({ temple }) => {
@@ -58,7 +47,7 @@ export const AffiliateBookingSection = ({ temple }) => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {affiliatePartners.map((partner) => {
             const finalUrl = partner.url || partner.getUrl(temple);
             return (
