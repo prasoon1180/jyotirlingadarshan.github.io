@@ -135,7 +135,7 @@ export const Header = () => {
       </header>
 
       {/* Search Dialog */}
-      <CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
+      <CommandDialog open={searchOpen} onOpenChange={setSearchOpen} shouldFilter={false}>
         <CommandInput 
           placeholder="Search temples by name or location..." 
           onValueChange={handleSearch}
@@ -147,6 +147,7 @@ export const Header = () => {
             {searchResults.map((temple) => (
               <CommandItem
                 key={temple.id}
+                value={`${temple.name} ${temple.location.state} ${temple.location.region}`}
                 onSelect={() => {
                   window.location.href = `/temple/${temple.id}`;
                   setSearchOpen(false);
