@@ -220,7 +220,7 @@ async def seed_data():
             "food_options": ["Temple prasad", "Maharashtrian vegetarian meals", "Simple restaurants near temple", "Better options in Khandala village"],
             "nearby_attractions": ["Bhimashankar Wildlife Sanctuary", "Hanuman Lake", "Gupt Bhimashankar (old temple)", "Nagphani (Duke's Nose viewpoint, 50 km)", "Karjat and Lonavala (nearby hill stations)"],
             "travel_info": {"nearest_airport": "Pune Airport (112 km)", "nearest_railway": "Pune Railway Station (100 km)", "road_connectivity": "Connected to Pune and Mumbai by road; last stretch is ghat road"},
-            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/3fw4wwne_Bhimshankar.jpg",
+            "image_url": "https://customer-assets.emergentagent.com/job_sacred-lingas/artifacts/ocw6m3yb_bhimashankar.jpg",
             "best_time_to_visit": "October to February"
         },
         {
