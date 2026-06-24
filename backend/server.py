@@ -121,10 +121,13 @@ async def create_jyotirlinga(temple: JyotirlingaCreate):
 
 # Seed data endpoint
 @api_router.post("/seed")
-async def seed_data():
+async def seed_data(force: bool = False):
     existing = await db.jyotirlingas.count_documents({})
-    if existing > 0:
-        return {"message": "Database already seeded", "count": existing}
+    if existing > 0 and not force:
+        return {"message": "Database already seeded. Pass ?force=true to re-seed.", "count": existing}
+    
+    if force:
+        await db.jyotirlingas.delete_many({})
     
     jyotirlingas_data = [
         {
